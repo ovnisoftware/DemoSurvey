@@ -1,0 +1,55 @@
+CREATE TABLE Survey
+(
+	SurveyId INT IDENTITY (1,1) PRIMARY KEY,
+	SurveyTitle NVARCHAR(2500),
+	SurveryUId UNIQUEIDENTIFIER
+)
+
+CREATE TABLE Item
+(
+	ItemId INT IDENTITY (100,1) PRIMARY KEY,
+	SurveyId INT, 
+	ItemText NVARCHAR(2500)
+)
+
+CREATE TABLE ItemAnswer
+(
+	AnswerId INT IDENTITY (1000,1) PRIMARY KEY,
+	ItemId INT,
+	AnswerText NVARCHAR(2500),
+	OrderNumber INT
+)
+
+CREATE TABLE Response
+(
+	ResponseId INT IDENTITY (10000,1) PRIMARY KEY,
+	SurveyId INT,
+	DateCreated SMALLDATETIME
+)
+
+CREATE TABLE ResponseAnswer
+(
+	ResponseAnswerId INT IDENTITY (100000,1) PRIMARY KEY,
+	ResponseId INT,
+	AnswerId INT,
+)
+
+ALTER TABLE Item
+ADD FOREIGN KEY (SurveyId)
+REFERENCES Survey(SurveyId)
+
+ALTER TABLE Response
+ADD FOREIGN KEY (SurveyId)
+REFERENCES Survey(SurveyId)
+
+ALTER TABLE ItemAnswer
+ADD FOREIGN KEY (ItemId)
+REFERENCES Item(ItemId)
+
+ALTER TABLE ResponseAnswer
+ADD FOREIGN KEY (AnswerId)
+REFERENCES ItemAnswer(AnswerId)
+
+ALTER TABLE ResponseAnswer
+ADD FOREIGN KEY (ResponseId)
+REFERENCES Response(ResponseId)

@@ -1,0 +1,55 @@
+﻿body {
+    background: #16a085;
+}
+
+#question2 {
+    display: none;
+}
+
+#question3 {
+    display: none;
+}
+
+#buttonQ1 {
+    display: none;
+}
+
+#buttonQ2 {
+    display: none;
+}
+
+#buttonQ3 {
+    display: none;
+}
+
+#endOfSurvey {
+    display: none;
+}
+
+#startup {
+    text-align: center;
+}
+
+#survey {
+    display: none;
+    top: 50%;
+    left: 50%;
+    width: 375px;
+    position: fixed;
+    text-align: center;
+}
+
+.surveyBody {
+    background: white;
+    height: 200px;
+    padding: 5px 0px;
+}
+
+.surveyHead {
+    background: #f39c12;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px 5px 0px 0px;
+}
